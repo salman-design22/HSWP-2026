@@ -8,27 +8,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-body{font-family:Inter,sans-serif;background:#f0f4f8}
-.card{transition:0.3s}
-.card:hover{transform:translateY(-6px);box-shadow:0 10px 20px rgba(0,0,0,0.15)}
-.form-step{display:none}
-.form-step.active{display:block}
-.step{display:flex;align-items:center;gap:10px;padding:12px;border-radius:10px;cursor:pointer}
-.step.active{background:#2563eb;color:white}
-.sidebar-step.completed{color:#388e3c}
-.upload-box{border:2px dashed #cbd5e1;padding:1.5rem;border-radius:1rem;background:white;transition:all 0.3s ease;cursor:pointer}
-.upload-box:hover{border-color:#3b82f6;box-shadow:0 10px 20px rgba(0,0,0,0.15)}
+body { font-family: 'Inter', sans-serif; background: #f1f5f9; }
+.card { transition: 0.3s; cursor: pointer; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15);}
+.form-step { display:none; }
+.form-step.active { display:block; }
+.step { display:flex; align-items:center; gap:10px; padding:12px; border-radius:10px; cursor:pointer; background:#e2e8f0;}
+.step.active { background:#2563eb; color:white;}
+input, select { border:1px solid #cbd5e1; padding:10px; border-radius:8px; width:100%; }
+#upload-box { border:2px dashed #9ca3af; padding:20px; border-radius:12px; transition:0.2s; cursor:pointer; }
+#upload-box:hover { background:#f3f4f6; border-color:#2563eb;}
+#upload-box.file-selected { border-color:#16a34a; background:#dcfce7; }
+#upload-box p { margin:0; }
 </style>
 </head>
-<body class="min-h-screen">
 
-<!-- NAVBAR -->
+<body>
+
+<!-- HEADER -->
 <header class="bg-white shadow sticky top-0 z-50">
 <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
 <h1 onclick="goHome()" class="font-bold text-xl text-blue-700 cursor-pointer">
 <i class="fa-solid fa-car-side"></i> BOOK-MY-HSRP
 </h1>
-<button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Help</button>
+<button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Help</button>
 </div>
 </header>
 
@@ -37,42 +40,43 @@ body{font-family:Inter,sans-serif;background:#f0f4f8}
 <!-- HOME -->
 <section id="homepage">
 <h2 class="text-3xl font-bold mb-6 text-gray-800">Choose Your Service</h2>
+
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-<div class="card bg-yellow-400 p-6 rounded-2xl shadow border-t-4 border-yellow-500">
+<div class="card bg-yellow-400 text-gray-900 p-6 rounded-2xl shadow border-t-4 border-yellow-600">
 <h3 class="font-bold text-lg">HSRP with Colour Sticker</h3>
 <p class="text-gray-800 mt-2">Secure and official HSRP plate</p>
-<button onclick="showBookingForm()" class="mt-4 bg-black text-white px-4 py-2 rounded-lg">Book Now</button>
+<button onclick="showBookingForm()" class="mt-4 bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-lg">Book Now</button>
 </div>
 
-<div class="card bg-yellow-400 p-6 rounded-2xl shadow border-t-4 border-yellow-500">
+<div class="card bg-yellow-400 text-gray-900 p-6 rounded-2xl shadow border-t-4 border-yellow-600">
 <h3 class="font-bold text-lg">Plate For Electric Vehicle</h3>
 <p class="text-gray-800 mt-2">Special EV plates</p>
-<button onclick="showBookingForm()" class="mt-4 bg-black text-white px-4 py-2 rounded-lg">Book Now</button>
+<button onclick="showBookingForm()" class="mt-4 bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-lg">Book Now</button>
 </div>
 
-<div class="card bg-yellow-400 p-6 rounded-2xl shadow border-t-4 border-yellow-500">
+<div class="card bg-yellow-400 text-gray-900 p-6 rounded-2xl shadow border-t-4 border-yellow-600">
 <h3 class="font-bold text-lg">Only Colour Sticker</h3>
 <p class="text-gray-800 mt-2">Sticker for existing plate</p>
-<button onclick="showBookingForm()" class="mt-4 bg-black text-white px-4 py-2 rounded-lg">Book Now</button>
+<button onclick="showBookingForm()" class="mt-4 bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded-lg">Book Now</button>
 </div>
 
-<div class="card bg-blue-600 p-6 rounded-2xl shadow border-t-4 border-blue-700">
+<div class="card bg-blue-600 text-white p-6 rounded-2xl shadow border-t-4 border-blue-700">
 <h3 class="font-bold text-lg">Replacement / Transfer</h3>
 <p class="text-gray-100 mt-2">Lost or damaged plate</p>
-<button onclick="showBookingForm()" class="mt-4 bg-white text-blue-700 px-4 py-2 rounded-lg">Book Now</button>
+<button onclick="showBookingForm()" class="mt-4 bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded-lg">Book Now</button>
 </div>
 
-<div class="card bg-blue-600 p-6 rounded-2xl shadow border-t-4 border-blue-700">
+<div class="card bg-blue-600 text-white p-6 rounded-2xl shadow border-t-4 border-blue-700">
 <h3 class="font-bold text-lg">Plate For Tractor</h3>
 <p class="text-gray-100 mt-2">Special tractor plates</p>
-<button onclick="showBookingForm()" class="mt-4 bg-white text-blue-700 px-4 py-2 rounded-lg">Book Now</button>
+<button onclick="showBookingForm()" class="mt-4 bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded-lg">Book Now</button>
 </div>
 
 </div>
 </section>
 
-<!-- BOOKING -->
+<!-- BOOKING FORM -->
 <section id="booking-page" class="hidden bg-white p-6 rounded-2xl shadow mt-6">
 
 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -91,14 +95,12 @@ body{font-family:Inter,sans-serif;background:#f0f4f8}
 <h2 class="text-xl font-bold mb-4">Vehicle Information</h2>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<select id="state" class="border p-3 rounded-lg">
-<option>Select State / UT</option>
-</select>
-<input placeholder="Registration Number" class="border p-3 rounded-lg">
-<input placeholder="Chassis Number (Last 5 digits)" maxlength="5" class="border p-3 rounded-lg">
-<input placeholder="Engine Number (Last 5 digits)" maxlength="5" class="border p-3 rounded-lg">
-<select id="vehicle-type" class="border p-3 rounded-lg">
-<option>Vehicle Type</option>
+<select id="state" required></select>
+<input placeholder="Registration Number" required>
+<input placeholder="Chassis Number (Last 5 digits)" maxlength="5" required>
+<input placeholder="Engine Number (Last 5 digits)" maxlength="5" required>
+<select required>
+<option value="">Select Vehicle Type</option>
 <option>2 Wheeler</option>
 <option>4 Wheeler</option>
 <option>Truck</option>
@@ -114,11 +116,11 @@ body{font-family:Inter,sans-serif;background:#f0f4f8}
 <h2 class="text-xl font-bold mb-4">Fitment Location</h2>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<input placeholder="Full Name" class="border p-3 rounded-lg">
-<input placeholder="Phone Number" class="border p-3 rounded-lg">
-<input placeholder="Email" class="border p-3 rounded-lg">
-<input placeholder="Address" class="border p-3 rounded-lg">
-<input placeholder="Pincode" class="border p-3 rounded-lg">
+<input placeholder="Full Name" required>
+<input placeholder="Mobile Number" type="tel" pattern="[0-9]{10}" required>
+<input placeholder="Email" type="email" required>
+<input placeholder="Address" required>
+<input placeholder="Pincode" required>
 </div>
 
 <div class="mt-4 flex gap-3">
@@ -141,15 +143,15 @@ Payment must be completed within <span id="timer">05:00</span>
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=example@upi&pn=HSRP" class="border p-3 rounded-xl bg-white">
 </div>
 
-<p class="text-center text-gray-700 font-semibold mb-4">Scan and pay with any UPI app</p>
+<p class="text-center font-semibold text-gray-700 mb-4">Scan and pay with any UPI app</p>
 
-<div class="upload-box" onclick="document.getElementById('screenshot').click()">
+<div id="upload-box" class="border-2 border-dashed p-4 rounded-xl text-center cursor-pointer">
 <label class="font-semibold block mb-2">Upload Payment Screenshot</label>
-<input type="file" id="screenshot" class="hidden" onchange="enableSubmit()">
-<p class="text-gray-500 text-sm">Click here or drag file to upload</p>
+<input type="file" class="w-full" onchange="highlightUpload(this)">
+<p class="text-gray-500 text-sm">(PNG, JPG up to 25MB)</p>
 </div>
 
-<button id="submit-btn" onclick="submitBooking()" disabled class="mt-4 bg-green-600 text-white px-6 py-2 rounded-lg w-full">Submit Booking</button>
+<button onclick="submitBooking()" class="mt-4 bg-green-600 text-white px-6 py-2 rounded-lg w-full">Submit Booking</button>
 
 </div>
 </div>
@@ -162,43 +164,32 @@ Payment must be completed within <span id="timer">05:00</span>
 <section id="success-page" class="hidden bg-white p-10 text-center rounded-2xl shadow max-w-xl mx-auto mt-10">
 <i class="fa-solid fa-circle-check text-green-600 text-5xl mb-4"></i>
 <h2 class="text-2xl font-bold mb-2">Booking Successful</h2>
-<p class="font-bold mb-2">Order ID: <span id="order-id"></span></p>
+<p class="text-lg font-bold mb-4">Order ID: <span id="order-id"></span></p>
 <p class="text-gray-700 leading-relaxed">
 Your booking has been successfully completed.<br><br>
 Your HSRP plate will be delivered within 6–8 days.
 </p>
+
 <button onclick="goHome()" class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg">Go Home</button>
 </section>
 
 </main>
 
 <script>
-// STATES & UTs
-const states = [
-"Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat",
-"Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra",
-"Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim",
-"Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal",
-"Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli and Daman and Diu",
-"Delhi","Jammu and Kashmir","Ladakh","Lakshadweep","Puducherry"
-];
-let currentStep=1;
+let currentStep = 1;
 let timerInterval;
 
-// populate state dropdown
-document.addEventListener('DOMContentLoaded',()=>{
-  const select=document.getElementById('state');
-  states.forEach(s=>{
-    const opt=document.createElement('option'); opt.value=s; opt.textContent=s; select.appendChild(opt);
-  });
-});
+const indianStates = ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli and Daman and Diu","Delhi","Jammu and Kashmir","Ladakh","Lakshadweep","Puducherry"];
+
+function populateStates(){
+const select = document.getElementById("state");
+indianStates.forEach(s => { let o=document.createElement("option"); o.value=s; o.textContent=s; select.appendChild(o);});
+}
 
 function showBookingForm(){
 document.getElementById("homepage").classList.add("hidden");
 document.getElementById("booking-page").classList.remove("hidden");
 }
-
-function goHome(){location.reload();}
 
 function nextStep(step){
 document.getElementById("step-"+currentStep).classList.remove("active");
@@ -209,27 +200,39 @@ currentStep=step;
 if(step===3) startTimer();
 }
 
-function prevStep(step){nextStep(step);}
-
-function startTimer(){
-let time=300; clearInterval(timerInterval);
-timerInterval=setInterval(()=>{
-let min=Math.floor(time/60);
-let sec=time%60;
-document.getElementById("timer").innerText=
-(min<10?"0":"")+min+":"+(sec<10?"0":"")+sec;
-if(time<=0){clearInterval(timerInterval); alert("Time expired. Please try again."); goHome();}
-time--;
-},1000);
+function prevStep(step){
+nextStep(step);
 }
-
-function enableSubmit(){document.getElementById("submit-btn").disabled=false;}
 
 function submitBooking(){
 document.getElementById("booking-page").classList.add("hidden");
 document.getElementById("success-page").classList.remove("hidden");
-document.getElementById("order-id").innerText="HSRP"+Math.floor(Math.random()*1000000);
+document.getElementById("order-id").textContent="HSRP"+Math.floor(Math.random()*1000000);
 }
+
+function goHome(){
+location.reload();
+}
+
+function startTimer(){
+let time=300;
+clearInterval(timerInterval);
+timerInterval=setInterval(()=>{
+let min=Math.floor(time/60);
+let sec=time%60;
+document.getElementById("timer").innerText=(min<10?"0":"")+min+":"+(sec<10?"0":"")+sec;
+if(time<=0){clearInterval(timerInterval);alert("Time expired. Please try again."); goHome();}
+time--;
+},1000);
+}
+
+function highlightUpload(input){
+const box=document.getElementById("upload-box");
+if(input.files && input.files.length>0){box.classList.add("file-selected");}else{box.classList.remove("file-selected");}
+
+}
+
+document.addEventListener("DOMContentLoaded",populateStates);
 </script>
 
 </body>
